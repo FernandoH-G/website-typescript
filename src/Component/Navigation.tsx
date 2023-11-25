@@ -1,6 +1,7 @@
 // Internal
 // It's easier to down size a png if it's big to begin with.
 // Doesn't lose quality, at least to my eyes.
+import { Grid } from "@mui/material";
 import ic_my_pig from "./../Images/ic_my_pig_512x512.png"
 
 // External Imports
@@ -18,10 +19,12 @@ type NavigationProps = {
 }
 const Navigation = (props: NavigationProps) => {
 	const normalStyle = {
-		color: "white"
+		color: "white",
+		marginRight: "8px"
 	}
 	const activeStyle = {
 		color: "#00818A",
+		marginRight: "8px",
 		textShadow: "1px 1px 2px #00818A",
 	}
 
@@ -32,7 +35,7 @@ const Navigation = (props: NavigationProps) => {
 				flexWrap: "wrap",
 				// margin: "15px 0 15px 0",
 				marginBottom: "15px",
-				// padding: ".5rem 1.5rem",
+				padding: "1rem 1rem",
 				backgroundColor: "#343a40",
 				// borderRadius: "0 35px 0 35px",
 				// If set height, the contents will spill over since it can't 
@@ -42,62 +45,94 @@ const Navigation = (props: NavigationProps) => {
 				boxShadow: "4px 5px 9px"
 			}}
 		>
-			<Link to="/">
-				<img
-					src={ic_my_pig}
-					width="100px"
-					height="100px"
-					alt="FH-G logo"
-					style={{ borderRadius: "50px" }}
-				/>
-			</Link>
-			<NavLink
-				to="/home"
-				style={({ isActive }) => isActive ? activeStyle : normalStyle}
+			<Grid
+				container
 			>
-				<Typography
-					variant="button"
+				<Grid
+					item
+					xs={12}
+					sm={1}
 				>
-					Home
-				</Typography>
-			</NavLink>
-			<NavLink
-				to="/about"
-				style={({ isActive }) => isActive ? activeStyle : normalStyle}
-			>
-				<Typography
-					variant="button"
+					<Link to="/">
+						<img
+							src={ic_my_pig}
+							width="100px"
+							height="100px"
+							alt="FH-G logo"
+							style={{ borderRadius: "50px" }}
+						/>
+					</Link>
+				</Grid>
+				<Grid
+					item
+					xs={12}
+					sm={8}
 				>
-					About
-				</Typography>
-			</NavLink>
-			<NavLink
-				to="videos"
-				style={({ isActive }) => isActive ? activeStyle : normalStyle}
-			>
-				<Typography
-					variant="button"
+					<div
+					style={{
+						display:"flex",
+						alignItems: "center",
+						height: "100%"
+					}}
+					>
+						<NavLink
+							to="/home"
+							style={({ isActive }) => isActive ? activeStyle : normalStyle}
+						>
+							<Typography
+								variant="button"
+							>
+								Home
+							</Typography>
+						</NavLink>
+						<NavLink
+							to="/about"
+							style={({ isActive }) => isActive ? activeStyle : normalStyle}
+						>
+							<Typography
+								variant="button"
+							>
+								About
+							</Typography>
+						</NavLink>
+						<NavLink
+							to="videos"
+							style={({ isActive }) => isActive ? activeStyle : normalStyle}
+						>
+							<Typography
+								variant="button"
+							>
+								Videos
+							</Typography>
+						</NavLink>
+
+					</div>
+				</Grid>
+				<Grid
+					item
+					xs={12}
+					sm={3}
 				>
-					Videos
-				</Typography>
-			</NavLink>
-			{/* Title and Subtitle placed inside right of Navigation. */}
-			<div style={{
-				display: "flex",
-				flexDirection: "column",
-				width: "470px",
-			}}>
-				<Typography
-					variant="h2"
-				>
-					{props.headerMessage.title}
-				</Typography>
-				<Typography
-					style={{ color: "white" }}
-				>
-					{props.headerMessage.subtitle}
-				</Typography>
-			</div>
+					{/* Title and Subtitle placed inside right of Navigation. */}
+					<div style={{
+						display: "flex",
+						flexDirection: "column",
+						// width: "470px",
+					}}>
+						<Typography
+							variant="h2"
+						>
+							{props.headerMessage.title}
+						</Typography>
+						<Typography
+							style={{ color: "white" }}
+						>
+							{props.headerMessage.subtitle}
+						</Typography>
+					</div>
+				</Grid>
+
+			</Grid>
 		</section>
 		// <Navbar
 		// 	bg="dark"
