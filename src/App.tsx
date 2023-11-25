@@ -1,7 +1,7 @@
 import './App.css';
 
 import { useState } from "react"
-import { Routes, Route } from "react-router-dom/";
+import { Routes, Route, Navigate } from "react-router-dom/";
 import {
   ApolloClient,
   ApolloProvider,
@@ -53,8 +53,12 @@ function App() {
         />
         <Routes>
           <Route
-            path="/"
+            path="/home"
             element={<Home handleSettingHeaderMessage={handleSettingHeaderMessage} />}
+          />
+          <Route
+            path="*"
+            element={<Navigate to="/home" replace />}
           />
           {/* <Route
 						path="about"

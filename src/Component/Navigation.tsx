@@ -16,7 +16,7 @@ type NavigationProps = {
 		subtitle: string
 	}
 }
-function Navigation(props: NavigationProps) {
+const Navigation = (props: NavigationProps) => {
 	const normalStyle = {
 		color: "white"
 	}
@@ -26,7 +26,22 @@ function Navigation(props: NavigationProps) {
 	}
 
 	return (
-		<section>
+		<section
+			style={{
+				display: "flex",
+				flexWrap: "wrap",
+				// margin: "15px 0 15px 0",
+				marginBottom: "15px",
+				// padding: ".5rem 1.5rem",
+				backgroundColor: "#343a40",
+				// borderRadius: "0 35px 0 35px",
+				// If set height, the contents will spill over since it can't 
+				// 'grow' to fill content. minHeight sets a floor,
+				// not a ceiling. Element can grow to fit content.
+				// minHeight: "200px",
+				boxShadow: "4px 5px 9px"
+			}}
+		>
 			<Link to="/">
 				<img
 					src={ic_my_pig}
@@ -36,6 +51,53 @@ function Navigation(props: NavigationProps) {
 					style={{ borderRadius: "50px" }}
 				/>
 			</Link>
+			<NavLink
+				to="/home"
+				style={({ isActive }) => isActive ? activeStyle : normalStyle}
+			>
+				<Typography
+					variant="button"
+				>
+					Home
+				</Typography>
+			</NavLink>
+			<NavLink
+				to="/about"
+				style={({ isActive }) => isActive ? activeStyle : normalStyle}
+			>
+				<Typography
+					variant="button"
+				>
+					About
+				</Typography>
+			</NavLink>
+			<NavLink
+				to="videos"
+				style={({ isActive }) => isActive ? activeStyle : normalStyle}
+			>
+				<Typography
+					variant="button"
+				>
+					Videos
+				</Typography>
+			</NavLink>
+			{/* Title and Subtitle placed inside right of Navigation. */}
+			<div style={{
+				display: "flex",
+				flexDirection: "column",
+				width: "470px",
+			}}>
+				<Typography
+					variant="h2"
+				>
+					{props.headerMessage.title}
+				</Typography>
+				<Typography
+					style={{ color: "white" }}
+				>
+					{props.headerMessage.subtitle}
+				</Typography>
+			</div>
 		</section>
 		// <Navbar
 		// 	bg="dark"
@@ -104,24 +166,6 @@ function Navigation(props: NavigationProps) {
 		// 			</NavLink>
 		// 		</Nav>
 		// 	</Navbar.Collapse>
-		// 	{/* Title and Subtitle placed inside right of Navigation. */}
-		// 	<div style={{
-		// 		display: "flex",
-		// 		flexDirection: "column",
-		// 		width: "470px",
-		// 	}}>
-		// 		<Typography
-		// 			variant="h2"
-		// 		>
-		// 			{props.headerMessage.title}
-		// 		</Typography>
-		// 		<Typography
-		// 			variant="subtitle"
-		// 			style={{ color: "white" }}
-		// 		>
-		// 			{props.headerMessage.subtitle}
-		// 		</Typography>
-		// 	</div>
 		// </Navbar>
 	);
 }
