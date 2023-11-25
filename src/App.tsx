@@ -1,26 +1,74 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
+import { useState } from "react"
+import { Routes, Route } from "react-router-dom/";
+import {
+  ApolloClient,
+  ApolloProvider,
+  createHttpLink,
+  InMemoryCache,
+} from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
+
+import Navigation from './Component/Navigation';
+// import About from "./Endpoint/About"
+// import Videos from "./Endpoint/Videos"
+import Home from "./Home"
+// import Test from "./Endpoint/Test"
+
+
+const httpLink = createHttpLink({
+  uri: 'https://api.github.com/graphql',
+});
+
+const authLink = setContext((_, { headers }) => {
+  const token = process.env.REACT_APP_GH_API_KEY;
+  // Return the headers to the context so httpLink can read them.
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : "",
+    }
+  }
+});
+
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache()
+});
+
+
 function App() {
+  const [headerMessage, setHeaderMessage] = useState({ title: "", subtitle: "" })
+
+  function handleSettingHeaderMessage(title: string, subtitle: string) {
+    setHeaderMessage({ title: title, subtitle: subtitle })
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <ApolloProvider client={client}>
+      <>
+        <Navigation
+          headerMessage={headerMessage}
+        />
+        <Routes>
+          <Route
+            path="/"
+            element={<Home handleSettingHeaderMessage={handleSettingHeaderMessage} />}
+          />
+          {/* <Route
+						path="about"
+						element={<About setHeaderMessage={setHeaderMessage} />}
+					/>
+					<Route
+						path="videos"
+						element={<Videos setHeaderMessage={setHeaderMessage} />}
+					/> */}
+          {/* <Route path="/test" element={<Test>} /> */}
+        </Routes>
+      </>
+    </ApolloProvider>
+  )
 }
 
 export default App;

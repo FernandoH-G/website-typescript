@@ -1,38 +1,109 @@
-.App {
-  text-align: center;
+:root {
+  --pri: #282c34;
+  --sec: #343a40;
+  --ter: #00818A;
+  --txt: white;
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+p {
+  color: var(--txt);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h1,
+h2,
+h3 {
+  color: var(--ter)
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.title-text-color {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.subtitle-text-color {
+  color: rgb(177, 173, 173);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/***************************************************************/
+.repo-title-link {
+  color: var(--ter);
+}
+
+.nav-button-container {
+  display: flex;
+  align-items: center;
+}
+
+.nav-button-style {
+  color: white;
+  cursor: pointer;
+}
+
+.nav-button-style-mobile {
+  height: 40px;
+  width: 40px;
+  fill: white;
+  cursor: pointer;
+}
+
+.nav-button-style:active {
+  /* box-shadow: 0 5px var(--ter); */
+  transform: translateY(4px)
+}
+
+.project-info-style {
+  display: flex;
+}
+
+.carousel-style {
+  display: flex;
+  height: 500px
+}
+
+/* Used in mobile mode. */
+.column-style {
+  display: flex;
+  flex-direction: column;
+  /* If I set the width to be 50%, then it will work on desktop mode,
+    but it wont work on mobile mode. Similarly, if I set max-width to 50%
+    the same effect happens. Why does min-width 50% work? */
+  min-width: 50%;
+}
+
+@media screen and (max-width: 980px) {
+  .project-info-style {
+    display: block;
   }
-  to {
-    transform: rotate(360deg);
+
+  .column-style {
+    display: flex;
+    flex-direction: column;
+    /* max-width: 100%; */
+    width: 100%;
   }
+}
+
+/* Why is using this css not working?*/
+/* .header-bar-style {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 15px 0 15px 0;
+    border-radius: 0 35px 0 35px;
+    min-height: 220px;
+    box-shadow: 4px 5px 9px #00818A;
+} */
+
+.repo-image-style {
+  float: left;
+  margin: 0 10px 0 0;
+  border-radius: 30px;
+}
+
+.flair-text {
+  /* color: var(--ter) */
+  text-decoration: underline;
+}
+
+::selection {
+  background: #94b0b3;
 }
