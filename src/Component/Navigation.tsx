@@ -47,8 +47,8 @@ const Navigation = (props: NavigationProps) => {
 					<Link to="/">
 						<img
 							src={ic_my_pig}
-							width="100px"
-							height="100px"
+							width="80px"
+							height="80px"
 							alt="FH-G logo"
 							style={{ borderRadius: "50px" }}
 						/>
