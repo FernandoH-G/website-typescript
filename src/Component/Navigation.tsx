@@ -33,7 +33,6 @@ const Navigation = (props: NavigationProps) => {
 			style={{
 				display: "flex",
 				flexWrap: "wrap",
-				// margin: "15px 0 15px 0",
 				marginBottom: "15px",
 				padding: "1rem 1rem",
 				backgroundColor: "#343a40",
@@ -42,7 +41,7 @@ const Navigation = (props: NavigationProps) => {
 				// 'grow' to fill content. minHeight sets a floor,
 				// not a ceiling. Element can grow to fit content.
 				// minHeight: "200px",
-				boxShadow: "4px 5px 9px"
+				boxShadow: "0px 2px 4px"
 			}}
 		>
 			<Grid
