@@ -1,21 +1,22 @@
-import './App.css';
-
 import { useState } from "react"
+
+// Internal
+import './App.css';
+import Navigation from './Component/Navigation';
+import About from "./About"
+import Home from "./Home"
+// import Videos from "./Endpoint/Videos"
+// import Test from "./Endpoint/Test"
+
+// External Imports
 import { Routes, Route, Navigate } from "react-router-dom/";
+import { setContext } from '@apollo/client/link/context';
 import {
   ApolloClient,
   ApolloProvider,
   createHttpLink,
   InMemoryCache,
 } from '@apollo/client';
-import { setContext } from '@apollo/client/link/context';
-
-import Navigation from './Component/Navigation';
-// import About from "./Endpoint/About"
-// import Videos from "./Endpoint/Videos"
-import Home from "./Home"
-// import Test from "./Endpoint/Test"
-
 
 const httpLink = createHttpLink({
   uri: 'https://api.github.com/graphql',
@@ -57,14 +58,14 @@ function App() {
             element={<Home handleSettingHeaderMessage={handleSettingHeaderMessage} />}
           />
           <Route
+            path="about"
+            element={<About handleSettingHeaderMessage={handleSettingHeaderMessage} />}
+          />
+          <Route
             path="*"
             element={<Navigate to="/home" replace />}
           />
           {/* <Route
-						path="about"
-						element={<About setHeaderMessage={setHeaderMessage} />}
-					/>
-					<Route
 						path="videos"
 						element={<Videos setHeaderMessage={setHeaderMessage} />}
 					/> */}
