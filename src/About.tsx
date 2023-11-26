@@ -4,7 +4,6 @@ import { useEffect } from "react"
 // External Imports
 import Typography from '@mui/material/Typography';
 
-
 type AboutProps = {
 	handleSettingHeaderMessage: (title: string, subtitle: string) => void
 }

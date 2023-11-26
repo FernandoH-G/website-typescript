@@ -5,7 +5,7 @@ import './App.css';
 import Navigation from './Component/Navigation';
 import About from "./About"
 import Home from "./Home"
-// import Videos from "./Endpoint/Videos"
+import Videos from "./Videos"
 // import Test from "./Endpoint/Test"
 
 // External Imports
@@ -62,13 +62,13 @@ function App() {
             element={<About handleSettingHeaderMessage={handleSettingHeaderMessage} />}
           />
           <Route
+            path="videos"
+            element={<Videos handleSettingHeaderMessage={handleSettingHeaderMessage} />}
+          />
+          <Route
             path="*"
             element={<Navigate to="/home" replace />}
           />
-          {/* <Route
-						path="videos"
-						element={<Videos setHeaderMessage={setHeaderMessage} />}
-					/> */}
           {/* <Route path="/test" element={<Test>} /> */}
         </Routes>
       </>
