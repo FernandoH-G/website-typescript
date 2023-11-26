@@ -1,9 +1,10 @@
 // React
+import { Typography } from "@mui/material"
 import { useEffect, useState } from "react"
 
 // External Imports
 // import Container from "react-bootstrap/Container"
-// import YouTube from 'react-youtube';
+import YouTube from 'react-youtube';
 
 type VideosProps = {
   handleSettingHeaderMessage: (title: string, subtitle: string) => void
@@ -42,7 +43,7 @@ const Videos = (props: VideosProps) => {
     }
     getVideos()
       .then(result => {
-        console.log("videoIds: ", result.videoIds)
+        setVideoIds(result.videoIds)
       })
       .catch((err) => {
         console.error(err)
@@ -53,20 +54,22 @@ const Videos = (props: VideosProps) => {
   return (
     <div>
       {
-        // videoIds
-        //   ?
-        //   videoIds.map((videoId) => {
-        //     return (
-        //       <YouTube
-        //         key={videoId}
-        //         videoId={videoId}
-        //         onReady={onReady}
-        //         opts={{width: "200px", height: "200px"}}
-        //       />
-        //     )
-        //   })
-        //   :
-        //   <Loading />
+        videoIds.length === 0
+          ?
+          <Typography>
+            Loading...
+          </Typography>
+          :
+          videoIds.map((videoId) => {
+            return (
+              <YouTube
+                key={videoId}
+                videoId={videoId}
+                // onReady={onReady}
+                // opts={{ width: "200px", height: "200px" }}
+              />
+            )
+          })
       }
     </div>
   )
