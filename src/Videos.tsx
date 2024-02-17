@@ -10,7 +10,9 @@ type VideosProps = {
   handleSettingHeaderMessage: (title: string, subtitle: string) => void
 }
 const Videos = (props: VideosProps) => {
-  const { handleSettingHeaderMessage } = props
+  const {
+    handleSettingHeaderMessage
+  } = props
 
   const [videoIds, setVideoIds] = useState<string[]>([])
   const title = "Videos"
@@ -18,7 +20,7 @@ const Videos = (props: VideosProps) => {
 
   useEffect(() => {
     handleSettingHeaderMessage(title, message)
-  }, [])
+  }, [handleSettingHeaderMessage])
 
   useEffect(() => {
     async function getVideos() {
@@ -65,8 +67,8 @@ const Videos = (props: VideosProps) => {
               <YouTube
                 key={videoId}
                 videoId={videoId}
-                // onReady={onReady}
-                // opts={{ width: "200px", height: "200px" }}
+              // onReady={onReady}
+              // opts={{ width: "200px", height: "200px" }}
               />
             )
           })

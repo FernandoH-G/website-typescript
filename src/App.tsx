@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useCallback, useState } from "react"
 
 // Internal
 import './App.css';
@@ -40,11 +40,22 @@ const client = new ApolloClient({
 
 
 function App() {
-  const [headerMessage, setHeaderMessage] = useState({ title: "", subtitle: "" })
+  const [headerMessage, setHeaderMessage] = useState({
+    title: "",
+    subtitle: ""
+  })
 
-  function handleSettingHeaderMessage(title: string, subtitle: string) {
+  // function handleSettingHeaderMessage() {
+  // }
+
+  const handleSettingHeaderMessage = useCallback((
+    title: string,
+    subtitle: string
+  ) => {
     setHeaderMessage({ title: title, subtitle: subtitle })
-  }
+  }, [])
+
+  console.log("App")
 
   return (
     <ApolloProvider client={client}>
@@ -55,21 +66,32 @@ function App() {
         <Routes>
           <Route
             path="/home"
-            element={<Home handleSettingHeaderMessage={handleSettingHeaderMessage} />}
+            element={
+              <Home
+                handleSettingHeaderMessage={handleSettingHeaderMessage}
+              />
+            }
           />
           <Route
             path="about"
-            element={<About handleSettingHeaderMessage={handleSettingHeaderMessage} />}
+            element={
+              <About
+                handleSettingHeaderMessage={handleSettingHeaderMessage}
+              />
+            }
           />
           <Route
             path="videos"
-            element={<Videos handleSettingHeaderMessage={handleSettingHeaderMessage} />}
+            element={
+              <Videos
+                handleSettingHeaderMessage={handleSettingHeaderMessage}
+              />
+            }
           />
           <Route
             path="*"
             element={<Navigate to="/home" replace />}
           />
-          {/* <Route path="/test" element={<Test>} /> */}
         </Routes>
       </>
     </ApolloProvider>

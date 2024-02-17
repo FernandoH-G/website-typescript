@@ -8,13 +8,16 @@ type AboutProps = {
 	handleSettingHeaderMessage: (title: string, subtitle: string) => void
 }
 function About(props: AboutProps) {
-	const { handleSettingHeaderMessage } = props
+	const {
+		handleSettingHeaderMessage
+	} = props
+
 	const title = "Fernando H-G"
 	const message = "Software Developer."
 
 	useEffect(() => {
 		handleSettingHeaderMessage(title, message)
-	}, [])
+	}, [handleSettingHeaderMessage])
 
 	return (
 		<section
@@ -24,9 +27,9 @@ function About(props: AboutProps) {
 			}}
 		>
 			<article
-			style={{
-				width: "75%"
-			}}
+				style={{
+					width: "75%"
+				}}
 			>
 				<Typography variant="h3" gutterBottom>
 					Bio
