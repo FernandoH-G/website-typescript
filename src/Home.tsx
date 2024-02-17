@@ -1,20 +1,13 @@
 // React
-import { useState, useEffect } from "react"
+import { useEffect } from "react"
 
 // Internal
-// import Commits from "../Component/Commits"
-// import Info from "../Component/Info"
-// import Loading from "../Component/Loading"
-import { parseDate } from "./Util/helpers"
 import { GET_PINNED_REPOS } from "./Util/query"
-// import { ReactComponent as BackIcon } from "./Images/arrow_back_black_24dp.svg"
-// import { ReactComponent as ForwardIcon } from "./Images/arrow_forward_black_24dp.svg"
+import { PinnedRepoEdge } from "./Types/types";
 
 // External Library
-import Typography from '@mui/material/Typography';
 import { useQuery } from '@apollo/client'
-// import { useTheme } from '@mui/material/styles';
-// import useMediaQuery from '@mui/material/useMediaQuery';
+import Typography from '@mui/material/Typography';
 
 type HomeProps = {
 	handleSettingHeaderMessage: (title: string, subtitle: string) => void
@@ -28,29 +21,7 @@ function Home(props: HomeProps) {
 	const message = "Projects fetched from Github using their GQL API."
 	const { data, loading, error } = useQuery(GET_PINNED_REPOS);
 
-	// const [repos, setRepos] = useState(null)
-	// const [repoIndex, setRepoIndex] = useState(0)
-	// const [currentRepo, setCurrentRepo] = useState(null)
-	// const theme = useTheme();
-	// const matches = useMediaQuery(theme.breakpoints.up('md'));
-
 	console.log("Home")
-
-	// function forwardRepo() {
-	// 	const tmpIndex = (repoIndex + 1) % repos.length
-	// 	const absIndex = Math.abs(tmpIndex)
-	// 	const currentRepo = repos[absIndex].node
-	// 	setRepoIndex(tmpIndex)
-	// 	setCurrentRepo(currentRepo)
-	// }
-
-	// function backwardRepo() {
-	// 	const tmpIndex = (repoIndex - 1) % repos.length
-	// 	const absIndex = Math.abs(tmpIndex)
-	// 	const currentRepo = repos[absIndex].node
-	// 	setRepoIndex(tmpIndex)
-	// 	setCurrentRepo(currentRepo)
-	// }
 
 	useEffect(() => {
 		handleSettingHeaderMessage(title, message)
@@ -68,40 +39,32 @@ function Home(props: HomeProps) {
 		)
 	}
 
-
-	// useEffect(() => {
-	// 	if (data !== undefined) {
-	// 		const pinEdges = data.user.pinnedItems.edges
-	// 		const repoArr = pinEdges
-	// 		setRepos(repoArr)
-	// 		const currentRepo = repoArr[0].node
-	// 		setCurrentRepo(currentRepo)
-	// 	}
-	// }, [data])
-
-	// if (!currentRepo) return (
-	// 	<main className="project-info-style">
-	// 		<section className="column-style">
-	// 			{/* <Loading /> */}
-	// 			<Typography>Loading...</Typography>
-	// 		</section>
-	// 	</main>
-	// )
-
-	{/* I'm passing standard props to this test component as if
-			this component is a div, p, section etc.*/}
-	{/* <Jumbo onClick={() => console.log("hi")} style={{color: "white"}} /> */ }
 	return data
 		?
 		<main >
-			<Typography>
-				Data
-			</Typography>
+			{
+				data.user.pinnedItems.edges.map((
+					edge: PinnedRepoEdge,
+					idx: number
+				) => {
+					return (
+						<Typography
+							key={idx}
+						>
+							{edge.node.name}
+						</Typography>
+					)
+				})
+			}
 		</main>
 		:
 		<Typography>
 			No Data
 		</Typography>
 }
+
+{/* I'm passing standard props to this test component as if
+			this component is a div, p, section etc.*/}
+{/* <Jumbo onClick={() => console.log("hi")} style={{color: "white"}} /> */ }
 
 export default Home;

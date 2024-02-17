@@ -45,9 +45,6 @@ function App() {
     subtitle: ""
   })
 
-  // function handleSettingHeaderMessage() {
-  // }
-
   const handleSettingHeaderMessage = useCallback((
     title: string,
     subtitle: string
