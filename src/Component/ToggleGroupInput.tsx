@@ -9,22 +9,27 @@ type ToggleInputProps = {
   label: string
   options: string[]
   option: string
+  handleOptionChange: (
+    event: React.MouseEvent<HTMLElement>,
+    option: string
+  ) => void
 }
 const ToggleGroupInput = (props: ToggleInputProps) => {
   const {
     label,
     options,
-    option
+    option,
+    handleOptionChange
   } = props
 
-  const [sortType, setSortType] = useState(option);
+  // const [sortType, setSortType] = useState(option);
 
-  function handleSortType(
-    event: React.MouseEvent<HTMLElement>,
-    newOption: string,
-  ) {
-    setSortType(newOption);
-  }
+  // function handleSortType(
+  //   event: React.MouseEvent<HTMLElement>,
+  //   newOption: string,
+  // ) {
+  //   setSortType(newOption);
+  // }
 
   return (
     <article
@@ -40,10 +45,10 @@ const ToggleGroupInput = (props: ToggleInputProps) => {
         {label}:
       </Typography>
       <ToggleButtonGroup
-        value={sortType}
+        value={option}
         color="flair"
         exclusive
-        onChange={handleSortType}
+        onChange={handleOptionChange}
         aria-label="Set type"
       >
         {
