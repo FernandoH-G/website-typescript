@@ -8,6 +8,7 @@ import VideoCard from "./Component/VideoCard";
 // External Imports
 import { Grid, Typography } from "@mui/material"
 import ToggleGroupInput from "./Component/ToggleGroupInput";
+import { DateTime } from "luxon";
 
 const SORT_TYPES = ["date", "title"]
 const SORT_OPTIONS = ["desc", "asc"]
@@ -144,12 +145,26 @@ const Videos = (props: VideosProps) => {
               videoInfoItems
                 .slice()
                 .sort((a, b) => {
-                  const aTitle = a.title
-                  const bTitle = b.title
-                  if (sortOption === "asc") {
-                    return aTitle.localeCompare(bTitle)
+                  const aTimestamp = DateTime
+                    .fromISO(a.publishedAtISO)
+                    .toSeconds()
+                  const bTimestamp = DateTime
+                    .fromISO(b.publishedAtISO)
+                    .toSeconds()
+
+                  if (sortType === "title") {
+                    const aTitle = a.title
+                    const bTitle = b.title
+
+                    if (sortOption === "asc") {
+                      return aTitle.localeCompare(bTitle)
+                    }
+                    return bTitle.localeCompare(aTitle)
                   }
-                  return bTitle.localeCompare(aTitle)
+                  if (sortOption === "asc") {
+                    return aTimestamp - bTimestamp
+                  }
+                  return bTimestamp - aTimestamp
                 })
                 .map((videoInfoItem) => {
                   return (
