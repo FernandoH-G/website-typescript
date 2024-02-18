@@ -5,7 +5,7 @@ import { useEffect, useState } from "react"
 // import Container from "react-bootstrap/Container"
 import { Grid, Typography } from "@mui/material"
 import { VideoInfoItem, YoutubeApi } from "./Types/types";
-import VideoContainer from "./Component/VideoContainer";
+import VideoCard from "./Component/VideoCard";
 
 type VideosProps = {
   handleSettingHeaderMessage: (title: string, subtitle: string) => void
@@ -93,9 +93,10 @@ const Videos = (props: VideosProps) => {
               <Grid
                 key={videoInfoItem.videoId}
                 item
-                xs={4}
+                xs={12}
+                sm={4}
               >
-                <VideoContainer
+                <VideoCard
                   item={videoInfoItem}
                 />
               </Grid>
