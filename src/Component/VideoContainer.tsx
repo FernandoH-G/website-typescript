@@ -3,6 +3,8 @@ import React from 'react'
 // External Imports
 import YouTube from 'react-youtube';
 import { VideoInfoItem } from '../Types/types';
+import { Typography } from '@mui/material';
+import { DateTime } from 'luxon';
 
 type VideoContainerProps = {
   item: VideoInfoItem
@@ -11,6 +13,12 @@ const VideoContainer = (props: VideoContainerProps) => {
   const {
     item
   } = props
+
+  const dateTime = DateTime.fromISO(item.publishedAtISO)
+  const dateStr = dateTime.toLocaleString(DateTime.DATE_MED)
+
+  console.log("video container")
+
   return (
     <div
       style={{
@@ -23,14 +31,16 @@ const VideoContainer = (props: VideoContainerProps) => {
           width: "100%",
           height: "250px"
         }}
-      // style={{
-      //   height: "100%",
-      //   width: "100%"
-      // }}
-
-      // onReady={onReady}
-      // opts={{ width: "200px", height: "200px" }}
       />
+      <Typography>
+        {item.title}
+      </Typography>
+      <Typography>
+        {dateStr}
+      </Typography>
+      <Typography>
+        {item.hashtags}
+      </Typography>
     </div>
   )
 }
