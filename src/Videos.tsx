@@ -88,11 +88,23 @@ const Videos = (props: VideosProps) => {
             item
             xs={12}
           >
-            <ToggleGroupInput
-              label="Sort Type"
-              options={["Date", "Title"]}
-              option="Date"
-            />
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap"
+              }}
+            >
+              <ToggleGroupInput
+                label="Sort Type"
+                options={["date", "title"]}
+                option="date"
+              />
+              <ToggleGroupInput
+                label="Sort"
+                options={["asc", "desc"]}
+                option="asc"
+              />
+            </div>
           </Grid>
 
           {

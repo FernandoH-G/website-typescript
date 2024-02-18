@@ -30,13 +30,13 @@ const ToggleGroupInput = (props: ToggleInputProps) => {
     <article
       style={{
         display: "flex",
-        alignItems: "center"
+        alignItems: "center",
+        marginRight: "2rem"
       }}
     >
       <Typography
-        marginRight="8px"
+        marginRight="0.5rem"
       >
-        {/* Sort Type: */}
         {label}:
       </Typography>
       <ToggleButtonGroup
@@ -47,9 +47,10 @@ const ToggleGroupInput = (props: ToggleInputProps) => {
         aria-label="Set type"
       >
         {
-          options.map((option) => {
+          options.map((option, idx) => {
             return (
               <ToggleButton
+                key={idx}
                 value={option}
                 aria-label={option}
               >
@@ -60,22 +61,6 @@ const ToggleGroupInput = (props: ToggleInputProps) => {
             )
           })
         }
-        {/* <ToggleButton
-          value="date"
-          aria-label="Date"
-        >
-          <Typography>
-            Date
-          </Typography>
-        </ToggleButton>
-        <ToggleButton
-          value="title"
-          aria-label="Title"
-        >
-          <Typography>
-            Title
-          </Typography>
-        </ToggleButton> */}
       </ToggleButtonGroup>
     </article>
   )
