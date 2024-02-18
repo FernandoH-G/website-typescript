@@ -31,14 +31,6 @@ const VideoCard = (props: VideoCardProps) => {
         }}
       />
       <div
-        // style={{
-        //   minHeight: "85px",
-        //   padding: "5px",
-        //   borderBottomLeftRadius: "8px",
-        //   borderBottomRightRadius: "8px",
-        //   backgroundColor: "#343a40",
-        //   textAlign:"center"
-        // }}
         className='video-card-info'
       >
         <Typography

@@ -20,14 +20,10 @@ function About(props: AboutProps) {
 	}, [handleSettingHeaderMessage])
 
 	return (
-		<section
-			// style={{
-			// 	display: "flex",
-			// 	justifyContent: "center"
-			// }}
+		<main
 			className="center-container"
 		>
-			<article
+			<section
 				className="center-width"
 			>
 				<Typography variant="h3" gutterBottom>
@@ -51,8 +47,8 @@ function About(props: AboutProps) {
 				<Typography paragraph>
 					I have commuted to school and home via bus and <strong className="flair-text">cycling</strong> for 4 years. Be it rain or shine, I rode my bike as part of the commute to my university. It was a very fun and healthy time.
 				</Typography>
-			</article>
-		</section>
+			</section>
+		</main>
 	);
 }
 

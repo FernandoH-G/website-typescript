@@ -43,25 +43,31 @@ function Home(props: HomeProps) {
 
 	return data
 		?
-		<main >
-			{
-				data.user.pinnedItems.edges.map((
-					edge: PinnedRepoEdge,
-					idx: number
-				) => {
-					return (
-						<Typography
-							key={idx}
-						>
-							{edge.node.name}
-						</Typography>
-					)
-				})
-			}
+		<main
+			className="center-container"
+		>
+			<section
+				className="center-width"
+			>
+				{
+					data.user.pinnedItems.edges.map((
+						edge: PinnedRepoEdge,
+						idx: number
+					) => {
+						return (
+							<Typography
+								key={idx}
+							>
+								{edge.node.name}
+							</Typography>
+						)
+					})
+				}
+			</section>
 		</main>
 		:
 		<Typography>
-			No Data
+			No Data.
 		</Typography>
 }
 

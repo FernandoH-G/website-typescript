@@ -71,10 +71,10 @@ const Videos = (props: VideosProps) => {
   }, [])
 
   return (
-    <section
+    <main
       className="center-container"
     >
-      <div
+      <section
         className="center-width"
       >
         <Grid
@@ -110,8 +110,8 @@ const Videos = (props: VideosProps) => {
               })
           }
         </Grid>
-      </div>
-    </section>
+      </section>
+    </main>
   )
 }
 export default Videos
