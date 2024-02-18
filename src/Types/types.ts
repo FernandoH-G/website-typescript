@@ -51,4 +51,5 @@ export type VideoInfoItem = {
   title: string
   hashtags: string
   publishedAtISO: string
+  thumbnailUrl: string
 }

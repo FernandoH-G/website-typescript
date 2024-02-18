@@ -64,17 +64,19 @@ const Videos = (props: VideosProps) => {
       }
       const data: YoutubeApi = await resp.json()
       const items = data.items
-      const videoIds = []
-      for (const item of items) {
-        const videoId = item.contentDetails.videoId
-        videoIds.push(videoId)
-      }
+      // const videoIds = []
+      // for (const item of items) {
+      //   const videoId = item.contentDetails.videoId
+      //   videoIds.push(videoId)
+      // }
       const videoInfoItems: VideoInfoItem[] = items.map((item) => {
+        const thumbnailUrl = item.snippet.thumbnails.standard.url
         return {
           videoId: item.contentDetails.videoId,
           title: item.snippet.title,
           hashtags: item.snippet.description,
-          publishedAtISO: item.snippet.publishedAt
+          publishedAtISO: item.snippet.publishedAt,
+          thumbnailUrl: thumbnailUrl
         }
       })
       return {
@@ -161,6 +163,7 @@ const Videos = (props: VideosProps) => {
                     }
                     return bTitle.localeCompare(aTitle)
                   }
+
                   if (sortOption === "asc") {
                     return aTimestamp - bTimestamp
                   }

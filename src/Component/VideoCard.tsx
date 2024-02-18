@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 // External Imports
 import YouTube from 'react-youtube';
@@ -14,6 +14,8 @@ const VideoCard = (props: VideoCardProps) => {
     item
   } = props
 
+  const [clicked, setClicked] = useState(false)
+
   const dateTime = DateTime.fromISO(item.publishedAtISO)
   const dateStr = dateTime.toLocaleString(DateTime.DATE_MED)
 
@@ -23,13 +25,28 @@ const VideoCard = (props: VideoCardProps) => {
     <div
       className='video-card'
     >
-      <YouTube
-        videoId={item.videoId}
-        opts={{
-          width: "100%",
-          height: "250px"
-        }}
-      />
+      {
+        clicked
+          ?
+          <YouTube
+            videoId={item.videoId}
+            opts={{
+              width: "100%",
+              height: "250px"
+            }}
+          />
+          :
+          <img
+            src={item.thumbnailUrl}
+            alt='Video Thumbnail'
+            width="100%"
+            height="250px"
+            onClick={() => {
+              setClicked(prevValue => !prevValue)
+            }}
+          />
+      }
+
       <div
         className='video-card-info'
       >
