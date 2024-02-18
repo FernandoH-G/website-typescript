@@ -2,9 +2,9 @@ import { useCallback, useState } from "react"
 
 // Internal
 import Navigation from './Component/Navigation';
+import Videos from "./Videos"
 import About from "./About"
 import Home from "./Home"
-import Videos from "./Videos"
 import './App.css';
 // import Test from "./Endpoint/Test"
 
@@ -18,6 +18,7 @@ import {
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Routes, Route, Navigate } from "react-router-dom/";
 import { setContext } from '@apollo/client/link/context';
+import { HashRouter } from 'react-router-dom';
 
 const httpLink = createHttpLink({
   uri: 'https://api.github.com/graphql',
@@ -85,43 +86,45 @@ function App() {
   console.log("App")
 
   return (
-    <ApolloProvider client={client}>
-      <ThemeProvider theme={theme}>
-        <Navigation
-          headerMessage={headerMessage}
-        />
-        <Routes>
-          <Route
-            path="/home"
-            element={
-              <Home
-                handleSettingHeaderMessage={handleSettingHeaderMessage}
-              />
-            }
+    <HashRouter>
+      <ApolloProvider client={client}>
+        <ThemeProvider theme={theme}>
+          <Navigation
+            headerMessage={headerMessage}
           />
-          <Route
-            path="about"
-            element={
-              <About
-                handleSettingHeaderMessage={handleSettingHeaderMessage}
-              />
-            }
-          />
-          <Route
-            path="videos"
-            element={
-              <Videos
-                handleSettingHeaderMessage={handleSettingHeaderMessage}
-              />
-            }
-          />
-          <Route
-            path="*"
-            element={<Navigate to="/home" replace />}
-          />
-        </Routes>
-      </ThemeProvider >
-    </ApolloProvider>
+          <Routes>
+            <Route
+              path="/home"
+              element={
+                <Home
+                  handleSettingHeaderMessage={handleSettingHeaderMessage}
+                />
+              }
+            />
+            <Route
+              path="about"
+              element={
+                <About
+                  handleSettingHeaderMessage={handleSettingHeaderMessage}
+                />
+              }
+            />
+            <Route
+              path="videos"
+              element={
+                <Videos
+                  handleSettingHeaderMessage={handleSettingHeaderMessage}
+                />
+              }
+            />
+            <Route
+              path="*"
+              element={<Navigate to="/home" replace />}
+            />
+          </Routes>
+        </ThemeProvider >
+      </ApolloProvider>
+    </HashRouter>
   )
 }
 
