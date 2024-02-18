@@ -16,58 +16,30 @@ h3 {
   color: var(--ter)
 }
 
-.title-text-color {
-  color: white;
-}
-
-.subtitle-text-color {
-  color: rgb(177, 173, 173);
-}
-
 /***************************************************************/
-.repo-title-link {
-  color: var(--ter);
+.center-width {
+  width: 85%;
 }
 
-.nav-button-container {
+.center-container {
   display: flex;
-  align-items: center;
+  justify-content: center;
 }
 
-.nav-button-style {
-  color: white;
-  cursor: pointer;
+.video-card:hover,
+.video-card:focus {
+  box-shadow: 0 0.5em 0.5em -0.4em var(--ter);
+  transform: translateY(-0.25rem);
+  /* transform: translateY(-.5rem); */
 }
 
-.nav-button-style-mobile {
-  height: 40px;
-  width: 40px;
-  fill: white;
-  cursor: pointer;
-}
-
-.nav-button-style:active {
-  /* box-shadow: 0 5px var(--ter); */
-  transform: translateY(4px)
-}
-
-.project-info-style {
-  display: flex;
-}
-
-.carousel-style {
-  display: flex;
-  height: 500px
-}
-
-/* Used in mobile mode. */
-.column-style {
-  display: flex;
-  flex-direction: column;
-  /* If I set the width to be 50%, then it will work on desktop mode,
-    but it wont work on mobile mode. Similarly, if I set max-width to 50%
-    the same effect happens. Why does min-width 50% work? */
-  min-width: 50%;
+.video-card-info {
+  min-height: 85px;
+  padding: 5px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  background-color: var(--sec);
+  text-align: center;
 }
 
 @media screen and (max-width: 980px) {
@@ -83,27 +55,7 @@ h3 {
   }
 }
 
-/* Why is using this css not working?*/
-/* .header-bar-style {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 15px 0 15px 0;
-    border-radius: 0 35px 0 35px;
-    min-height: 220px;
-    box-shadow: 4px 5px 9px #00818A;
-} */
-
-.repo-image-style {
-  float: left;
-  margin: 0 10px 0 0;
-  border-radius: 30px;
-}
-
 .flair-text {
   /* color: var(--ter) */
   text-decoration: underline;
-}
-
-::selection {
-  background: #94b0b3;
 }

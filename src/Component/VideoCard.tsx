@@ -21,10 +21,7 @@ const VideoCard = (props: VideoCardProps) => {
 
   return (
     <div
-      style={{
-        // padding: "8px",
-        // borderRadius: "8px"
-      }}
+      className='video-card'
     >
       <YouTube
         videoId={item.videoId}
@@ -34,14 +31,15 @@ const VideoCard = (props: VideoCardProps) => {
         }}
       />
       <div
-        style={{
-          minHeight: "85px",
-          padding: "5px",
-          borderBottomLeftRadius: "8px",
-          borderBottomRightRadius: "8px",
-          backgroundColor: "#343a40",
-          textAlign:"center"
-        }}
+        // style={{
+        //   minHeight: "85px",
+        //   padding: "5px",
+        //   borderBottomLeftRadius: "8px",
+        //   borderBottomRightRadius: "8px",
+        //   backgroundColor: "#343a40",
+        //   textAlign:"center"
+        // }}
+        className='video-card-info'
       >
         <Typography
           fontWeight="bold"

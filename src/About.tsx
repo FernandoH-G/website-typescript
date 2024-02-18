@@ -21,15 +21,14 @@ function About(props: AboutProps) {
 
 	return (
 		<section
-			style={{
-				display: "flex",
-				justifyContent: "center"
-			}}
+			// style={{
+			// 	display: "flex",
+			// 	justifyContent: "center"
+			// }}
+			className="center-container"
 		>
 			<article
-				style={{
-					width: "75%"
-				}}
+				className="center-width"
 			>
 				<Typography variant="h3" gutterBottom>
 					Bio

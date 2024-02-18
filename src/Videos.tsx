@@ -71,39 +71,47 @@ const Videos = (props: VideosProps) => {
   }, [])
 
   return (
-    <Grid
-      container
-      spacing={2}
+    <section
+      className="center-container"
     >
-      {
-        videoInfoItems.length === 0
-          ?
-          <Grid
-            item
-            xs={12}
-            textAlign="center"
-          >
-            <Typography>
-              No Videos...
-            </Typography>
-          </Grid>
-          :
-          videoInfoItems.map((videoInfoItem) => {
-            return (
+      <div
+        className="center-width"
+      >
+        <Grid
+          container
+          spacing={2}
+        >
+          {
+            videoInfoItems.length === 0
+              ?
               <Grid
-                key={videoInfoItem.videoId}
                 item
                 xs={12}
-                sm={4}
+                textAlign="center"
               >
-                <VideoCard
-                  item={videoInfoItem}
-                />
+                <Typography>
+                  No Videos...
+                </Typography>
               </Grid>
-            )
-          })
-      }
-    </Grid>
+              :
+              videoInfoItems.map((videoInfoItem) => {
+                return (
+                  <Grid
+                    key={videoInfoItem.videoId}
+                    item
+                    xs={12}
+                    sm={4}
+                  >
+                    <VideoCard
+                      item={videoInfoItem}
+                    />
+                  </Grid>
+                )
+              })
+          }
+        </Grid>
+      </div>
+    </section>
   )
 }
 export default Videos

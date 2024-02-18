@@ -1,22 +1,22 @@
 import { useCallback, useState } from "react"
 
 // Internal
-import './App.css';
 import Navigation from './Component/Navigation';
 import About from "./About"
 import Home from "./Home"
 import Videos from "./Videos"
+import './App.css';
 // import Test from "./Endpoint/Test"
 
 // External Imports
-import { Routes, Route, Navigate } from "react-router-dom/";
-import { setContext } from '@apollo/client/link/context';
 import {
   ApolloClient,
   ApolloProvider,
   createHttpLink,
   InMemoryCache,
 } from '@apollo/client';
+import { Routes, Route, Navigate } from "react-router-dom/";
+import { setContext } from '@apollo/client/link/context';
 
 const httpLink = createHttpLink({
   uri: 'https://api.github.com/graphql',
