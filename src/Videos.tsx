@@ -6,6 +6,7 @@ import { useEffect, useState } from "react"
 import { Grid, Typography } from "@mui/material"
 import YouTube from 'react-youtube';
 import { VideoInfoItem, YoutubeApi } from "./Types/types";
+import VideoContainer from "./Component/VideoContainer";
 
 type VideosProps = {
   handleSettingHeaderMessage: (title: string, subtitle: string) => void
@@ -15,7 +16,7 @@ const Videos = (props: VideosProps) => {
     handleSettingHeaderMessage
   } = props
 
-  const [videoIds, setVideoIds] = useState<string[]>([])
+  const [videoInfoItems, setVideoInfoItems] = useState<VideoInfoItem[]>([])
   const title = "Videos"
   const message = "Recent uploads."
 
@@ -55,12 +56,12 @@ const Videos = (props: VideosProps) => {
         }
       })
       return {
-        videoIds: videoIds
+        videoInfoItems
       }
     }
     getVideos()
       .then(result => {
-        setVideoIds(result.videoIds)
+        setVideoInfoItems(result.videoInfoItems)
       })
       .catch((err) => {
         console.error(err)
@@ -76,7 +77,7 @@ const Videos = (props: VideosProps) => {
       spacing={2}
     >
       {
-        videoIds.length === 0
+        videoInfoItems.length === 0
           ?
           <Grid
             item
@@ -88,34 +89,16 @@ const Videos = (props: VideosProps) => {
             </Typography>
           </Grid>
           :
-          videoIds.map((videoId) => {
+          videoInfoItems.map((videoInfoItem) => {
             return (
               <Grid
-                key={videoId}
+                key={videoInfoItem.videoId}
                 item
                 xs={4}
               >
-                <div
-                  style={{
-                    padding: "8px"
-                  }}
-                >
-                  <YouTube
-                    key={videoId}
-                    videoId={videoId}
-                    opts={{
-                      width: "100%",
-                      height: "250px"
-                    }}
-                  // style={{
-                  //   height: "100%",
-                  //   width: "100%"
-                  // }}
-
-                  // onReady={onReady}
-                  // opts={{ width: "200px", height: "200px" }}
-                  />
-                </div>
+                <VideoContainer
+                  item={videoInfoItem}
+                />
               </Grid>
             )
           })
