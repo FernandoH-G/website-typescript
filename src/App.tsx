@@ -15,6 +15,7 @@ import {
   createHttpLink,
   InMemoryCache,
 } from '@apollo/client';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Routes, Route, Navigate } from "react-router-dom/";
 import { setContext } from '@apollo/client/link/context';
 
@@ -38,6 +39,35 @@ const client = new ApolloClient({
   cache: new InMemoryCache()
 });
 
+// Augment the palette to include an ochre color
+declare module '@mui/material/styles' {
+  interface Palette {
+    flair: Palette['primary'];
+  }
+
+  interface PaletteOptions {
+    flair?: PaletteOptions['primary'];
+  }
+}
+
+// Update the component's color options to include a flair option.
+declare module '@mui/material/ToggleButtonGroup' {
+  interface ToggleButtonGroupPropsColorOverrides {
+    flair: true;
+  }
+}
+
+const theme = createTheme({
+  palette: {
+    flair: {
+      main: '#00eeff',
+      // light: '#',
+      // dark: '#',
+      // contrastText: '#',
+    },
+  },
+});
+
 
 function App() {
   const [headerMessage, setHeaderMessage] = useState({
@@ -56,7 +86,7 @@ function App() {
 
   return (
     <ApolloProvider client={client}>
-      <>
+      <ThemeProvider theme={theme}>
         <Navigation
           headerMessage={headerMessage}
         />
@@ -90,7 +120,7 @@ function App() {
             element={<Navigate to="/home" replace />}
           />
         </Routes>
-      </>
+      </ThemeProvider >
     </ApolloProvider>
   )
 }

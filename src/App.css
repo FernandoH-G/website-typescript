@@ -2,6 +2,7 @@
   --pri: #282c34;
   --sec: #343a40;
   --ter: #00818A;
+  /* ter light? --ter: #00eeff; */
   --txt: white;
 
 }
@@ -52,6 +53,11 @@ h3 {
   text-align: center;
 }
 
+.flair-text {
+  text-decoration: underline;
+}
+
+/* ARCHIVE */
 @media screen and (max-width: 980px) {
   .project-info-style {
     display: block;
@@ -63,9 +69,4 @@ h3 {
     /* max-width: 100%; */
     width: 100%;
   }
-}
-
-.flair-text {
-  /* color: var(--ter) */
-  text-decoration: underline;
 }
