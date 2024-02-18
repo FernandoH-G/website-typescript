@@ -3,11 +3,11 @@ import { useCallback, useEffect, useState } from "react"
 
 // Internal 
 import { VideoInfoItem, YoutubeApi } from "./Types/types";
+import ToggleGroupInput from "./Component/ToggleGroupInput";
 import VideoCard from "./Component/VideoCard";
 
 // External Imports
 import { Grid, Typography } from "@mui/material"
-import ToggleGroupInput from "./Component/ToggleGroupInput";
 import { DateTime } from "luxon";
 
 const SORT_TYPES = ["date", "title"]
@@ -30,15 +30,17 @@ const Videos = (props: VideosProps) => {
 
   const handleSortType = useCallback((
     event: React.MouseEvent<HTMLElement>,
-    option: string
+    option: string | null
   ) => {
+    if (option === null) return
     setSortType(option)
   }, [])
 
   const handleSortOption = useCallback((
     event: React.MouseEvent<HTMLElement>,
-    option: string
+    option: string | null
   ) => {
+    if (option === null) return
     setSortOption(option)
   }, [])
 

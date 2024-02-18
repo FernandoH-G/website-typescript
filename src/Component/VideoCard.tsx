@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 
-// External Imports
-import YouTube from 'react-youtube';
+// Internal
 import { VideoInfoItem } from '../Types/types';
+
+// External Imports
 import { Typography } from '@mui/material';
 import { DateTime } from 'luxon';
+import YouTube from 'react-youtube';
 
 type VideoCardProps = {
   item: VideoInfoItem

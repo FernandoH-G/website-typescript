@@ -11,7 +11,7 @@ type ToggleInputProps = {
   option: string
   handleOptionChange: (
     event: React.MouseEvent<HTMLElement>,
-    option: string
+    option: string | null
   ) => void
 }
 const ToggleGroupInput = (props: ToggleInputProps) => {
