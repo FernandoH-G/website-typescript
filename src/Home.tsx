@@ -25,7 +25,7 @@ function Home(props: HomeProps) {
 
 	useEffect(() => {
 		handleSettingHeaderMessage(title, message)
-	}, [])
+	}, [handleSettingHeaderMessage])
 
 	if (error) {
 		return (
@@ -38,6 +38,8 @@ function Home(props: HomeProps) {
 			<Typography>Loading...</Typography>
 		)
 	}
+
+	// Look to Jumbo component in js version of Website for spread props example.
 
 	return data
 		?
@@ -62,9 +64,5 @@ function Home(props: HomeProps) {
 			No Data
 		</Typography>
 }
-
-{/* I'm passing standard props to this test component as if
-			this component is a div, p, section etc.*/}
-{/* <Jumbo onClick={() => console.log("hi")} style={{color: "white"}} /> */ }
 
 export default Home;
