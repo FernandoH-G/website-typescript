@@ -7,8 +7,7 @@ import VideoCard from "./Component/VideoCard";
 
 // External Imports
 import { Grid, Typography } from "@mui/material"
-import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
-import ToggleButton from '@mui/material/ToggleButton';
+import ToggleGroupInput from "./Component/ToggleGroupInput";
 
 type VideosProps = {
   handleSettingHeaderMessage: (title: string, subtitle: string) => void
@@ -22,14 +21,6 @@ const Videos = (props: VideosProps) => {
   const title = "Videos"
   const message = "Recent uploads."
 
-  const [sortType, setSortType] = useState('date');
-
-  function handleSortType(
-    event: React.MouseEvent<HTMLElement>,
-    newOption: string,
-  ) {
-    setSortType(newOption);
-  };
 
   useEffect(() => {
     handleSettingHeaderMessage(title, message)
@@ -97,42 +88,11 @@ const Videos = (props: VideosProps) => {
             item
             xs={12}
           >
-            <article
-              style={{
-                display: "flex",
-                alignItems: "center"
-              }}
-            >
-              <Typography
-                marginRight="8px"
-              >
-                Sort Type:
-              </Typography>
-              <ToggleButtonGroup
-                value={sortType}
-                color="flair"
-                exclusive
-                onChange={handleSortType}
-                aria-label="Set sort type"
-              >
-                <ToggleButton
-                  value="date"
-                  aria-label="Date"
-                >
-                  <Typography>
-                    Date
-                  </Typography>
-                </ToggleButton>
-                <ToggleButton
-                  value="title"
-                  aria-label="Title"
-                >
-                  <Typography>
-                    Title
-                  </Typography>
-                </ToggleButton>
-              </ToggleButtonGroup>
-            </article>
+            <ToggleGroupInput
+              label="Sort Type"
+              options={["Date", "Title"]}
+              option="Date"
+            />
           </Grid>
 
           {
