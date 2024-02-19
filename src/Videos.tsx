@@ -9,6 +9,7 @@ import VideoCard from "./Component/VideoCard";
 // External Imports
 import { Grid, Typography } from "@mui/material"
 import { DateTime } from "luxon";
+import FlipMove from 'react-flip-move';
 
 const SORT_TYPES = ["date", "title"]
 const SORT_OPTIONS = ["desc", "asc"]
@@ -43,6 +44,48 @@ const Videos = (props: VideosProps) => {
     if (option === null) return
     setSortOption(option)
   }, [])
+
+  function displayVideos() {
+    return videoInfoItems
+      .slice()
+      .sort((a, b) => {
+        const aTimestamp = DateTime
+          .fromISO(a.publishedAtISO)
+          .toSeconds()
+        const bTimestamp = DateTime
+          .fromISO(b.publishedAtISO)
+          .toSeconds()
+
+        if (sortType === "title") {
+          const aTitle = a.title
+          const bTitle = b.title
+
+          if (sortOption === "asc") {
+            return aTitle.localeCompare(bTitle)
+          }
+          return bTitle.localeCompare(aTitle)
+        }
+
+        if (sortOption === "asc") {
+          return aTimestamp - bTimestamp
+        }
+        return bTimestamp - aTimestamp
+      })
+      .map((videoInfoItem) => {
+        return (
+          <Grid
+            key={videoInfoItem.videoId}
+            item
+            xs={12}
+            sm={4}
+          >
+            <VideoCard
+              item={videoInfoItem}
+            />
+          </Grid>
+        )
+      })
+  }
 
   useEffect(() => {
     handleSettingHeaderMessage(title, message)
@@ -146,45 +189,13 @@ const Videos = (props: VideosProps) => {
                 </Typography>
               </Grid>
               :
-              videoInfoItems
-                .slice()
-                .sort((a, b) => {
-                  const aTimestamp = DateTime
-                    .fromISO(a.publishedAtISO)
-                    .toSeconds()
-                  const bTimestamp = DateTime
-                    .fromISO(b.publishedAtISO)
-                    .toSeconds()
-
-                  if (sortType === "title") {
-                    const aTitle = a.title
-                    const bTitle = b.title
-
-                    if (sortOption === "asc") {
-                      return aTitle.localeCompare(bTitle)
-                    }
-                    return bTitle.localeCompare(aTitle)
-                  }
-
-                  if (sortOption === "asc") {
-                    return aTimestamp - bTimestamp
-                  }
-                  return bTimestamp - aTimestamp
-                })
-                .map((videoInfoItem) => {
-                  return (
-                    <Grid
-                      key={videoInfoItem.videoId}
-                      item
-                      xs={12}
-                      sm={4}
-                    >
-                      <VideoCard
-                        item={videoInfoItem}
-                      />
-                    </Grid>
-                  )
-                })
+              <FlipMove
+                typeName={null}
+              >
+                {
+                  displayVideos()
+                }
+              </FlipMove>
           }
         </Grid>
       </section>
