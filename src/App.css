@@ -32,7 +32,7 @@ a:active {
 
 /***************************************************************/
 .img-logo {
-  width: 30%;
+  max-width: 20%;
   border-radius: 1rem;
   margin-right: 1rem;
 }

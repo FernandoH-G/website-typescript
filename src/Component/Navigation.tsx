@@ -37,6 +37,7 @@ const Navigation = (props: NavigationProps) => {
 		>
 			<Grid
 				container
+				alignItems={"center"}
 			>
 
 				<Grid
