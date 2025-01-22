@@ -32,7 +32,8 @@ a:active {
 
 /***************************************************************/
 .img-logo {
-  max-width: 20%;
+  /* max-width: 20%; */
+  width: clamp(2rem, 5rem, 10rem);
   border-radius: 1rem;
   margin-right: 1rem;
 }
@@ -50,8 +51,9 @@ a:active {
 }
 
 .img-me {
-  width: 100%;
-  margin-bottom: 1rem;
+  /* width: clamp(5rem, 15rem, 20rem); */
+  width: 15rem;
+  margin-bottom: 0.5rem;
   border-radius: 1rem;
 }
 
@@ -106,10 +108,6 @@ a:active {
 1280px - desktops
  */
 @media screen and (min-width: 768px) {
-  .img-logo {
-    max-width: 20%;
-  }
-
   .nav-title {
     text-align: end;
   }
@@ -124,15 +122,8 @@ a:active {
   }
 }
 
-@media screen and (min-width: 1280px) {
-  .img-logo {
-    max-width: 10%;
-  }
-
-  .img-me {
-    max-width: 15%;
-  }
-}
+/* @media screen and (min-width: 1280px) {
+} */
 
 /* ARCHIVE */
 @media screen and (max-width: 980px) {
