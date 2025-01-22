@@ -41,7 +41,7 @@ a:active {
 .nav-items {
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
 }
 
 .me-section {
