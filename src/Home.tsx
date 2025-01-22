@@ -1,11 +1,10 @@
-// React
 import { useEffect } from "react"
 
-// Internal
+// Me
 import { GET_PINNED_REPOS } from "./Util/query"
 import { PinnedRepoEdge } from "./Types/types";
 
-// External Library
+// External Imports
 import { useQuery } from '@apollo/client'
 import Typography from '@mui/material/Typography';
 
@@ -21,21 +20,23 @@ function Home(props: HomeProps) {
 	const message = "Projects fetched from Github using their GQL API."
 	const { data, loading, error } = useQuery(GET_PINNED_REPOS);
 
-	console.log("Home")
-
 	useEffect(() => {
 		handleSettingHeaderMessage(title, message)
 	}, [handleSettingHeaderMessage])
 
 	if (error) {
 		return (
-			<Typography>Error when loading Github API.</Typography>
+			<Typography>
+				Error when loading Github API.
+			</Typography>
 		)
 	}
 
 	if (loading) {
 		return (
-			<Typography>Loading...</Typography>
+			<Typography>
+				Loading...
+			</Typography>
 		)
 	}
 

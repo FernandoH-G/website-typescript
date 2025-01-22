@@ -83,8 +83,6 @@ function App() {
     setHeaderMessage({ title: title, subtitle: subtitle })
   }, [])
 
-  console.log("App")
-
   return (
     <HashRouter>
       <ApolloProvider client={client}>

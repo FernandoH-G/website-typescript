@@ -1,12 +1,11 @@
-// Internal
 // It's easier to down size a png if it's big to begin with.
 // Doesn't lose quality, at least to my eyes.
-import { Grid } from "@mui/material";
 import ic_my_pig from "./../Images/ic_my_pig_512x512.png"
 
 // External Imports
-import Typography from '@mui/material/Typography';
 import { Link, NavLink } from "react-router-dom";
+import { Grid } from "@mui/material";
+import Typography from '@mui/material/Typography';
 
 type NavigationProps = {
 	headerMessage: {
@@ -29,8 +28,8 @@ const Navigation = (props: NavigationProps) => {
 		<section
 			style={{
 				display: "flex",
-				flexWrap: "wrap",
-				marginBottom: "15px",
+				// flexWrap: "wrap",
+				marginBottom: "1rem",
 				padding: "1rem 1rem",
 				backgroundColor: "#343a40",
 				boxShadow: "0px 2px 4px"
@@ -77,16 +76,6 @@ const Navigation = (props: NavigationProps) => {
 							</Typography>
 						</NavLink>
 						<NavLink
-							to="/about"
-							style={({ isActive }) => isActive ? activeStyle : normalStyle}
-						>
-							<Typography
-								variant="button"
-							>
-								About
-							</Typography>
-						</NavLink>
-						<NavLink
 							to="videos"
 							style={({ isActive }) => isActive ? activeStyle : normalStyle}
 						>
@@ -96,19 +85,28 @@ const Navigation = (props: NavigationProps) => {
 								Videos
 							</Typography>
 						</NavLink>
-
+						<NavLink
+							to="/about"
+							style={({ isActive }) => isActive ? activeStyle : normalStyle}
+						>
+							<Typography
+								variant="button"
+							>
+								About
+							</Typography>
+						</NavLink>
 					</div>
 				</Grid>
+
+				{/* Title and Subtitle placed inside right of Navigation. */}
 				<Grid
 					item
 					xs={12}
 					sm={3}
 				>
-					{/* Title and Subtitle placed inside right of Navigation. */}
-					<div style={{
-						display: "flex",
-						flexDirection: "column",
-					}}>
+					<div
+						className="nav-title"
+					>
 						<Typography
 							variant="h2"
 						>
