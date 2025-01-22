@@ -50,17 +50,16 @@ const Navigation = (props: NavigationProps) => {
 							display: "flex"
 						}}
 					>
-						{/* <Link
+						<Link
 							to="/"
 						>
-						</Link> */}
-						{/* Figure out how to contain img with <Link>... */}
-						<img
-							src={ic_my_pig}
-							alt="FH-G logo"
-							// width="80px"
-							className="img-logo"
-						/>
+							<img
+								src={ic_my_pig}
+								alt="FH-G logo"
+								// width="80px"
+								className="img-logo"
+							/>
+						</Link>
 						<div
 							className="nav-items"
 						>
