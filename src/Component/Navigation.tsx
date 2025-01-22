@@ -38,63 +38,62 @@ const Navigation = (props: NavigationProps) => {
 			<Grid
 				container
 			>
+
 				<Grid
 					item
 					xs={12}
-					sm={1}
-				>
-					<Link to="/">
-						<img
-							src={ic_my_pig}
-							width="80px"
-							height="80px"
-							alt="FH-G logo"
-							style={{ borderRadius: "50px" }}
-						/>
-					</Link>
-				</Grid>
-				<Grid
-					item
-					xs={12}
-					sm={8}
+					sm={4}
 				>
 					<div
 						style={{
-							display: "flex",
-							alignItems: "center",
-							height: "100%"
+							display: "flex"
 						}}
 					>
-						<NavLink
-							to="/home"
-							style={({ isActive }) => isActive ? activeStyle : normalStyle}
+						{/* <Link
+							to="/"
 						>
-							<Typography
-								variant="button"
-							>
-								Home
-							</Typography>
-						</NavLink>
-						<NavLink
-							to="videos"
-							style={({ isActive }) => isActive ? activeStyle : normalStyle}
+						</Link> */}
+						{/* Figure out how to contain img with <Link>... */}
+						<img
+							src={ic_my_pig}
+							alt="FH-G logo"
+							// width="80px"
+							className="img-logo"
+						/>
+						<div
+							className="nav-items"
 						>
-							<Typography
-								variant="button"
+							<NavLink
+								to="/home"
+								style={({ isActive }) => isActive ? activeStyle : normalStyle}
 							>
-								Videos
-							</Typography>
-						</NavLink>
-						<NavLink
-							to="/about"
-							style={({ isActive }) => isActive ? activeStyle : normalStyle}
-						>
-							<Typography
-								variant="button"
+								<Typography
+									variant="button"
+								>
+									Home
+								</Typography>
+							</NavLink>
+							<NavLink
+								to="videos"
+								style={({ isActive }) => isActive ? activeStyle : normalStyle}
 							>
-								About
-							</Typography>
-						</NavLink>
+								<Typography
+									variant="button"
+								>
+									Videos
+								</Typography>
+							</NavLink>
+							<NavLink
+								to="/about"
+								style={({ isActive }) => isActive ? activeStyle : normalStyle}
+							>
+								<Typography
+									variant="button"
+								>
+									About
+								</Typography>
+							</NavLink>
+						</div>
 					</div>
 				</Grid>
 
@@ -102,7 +101,7 @@ const Navigation = (props: NavigationProps) => {
 				<Grid
 					item
 					xs={12}
-					sm={3}
+					sm={8}
 				>
 					<div
 						className="nav-title"
