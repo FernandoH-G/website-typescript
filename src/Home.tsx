@@ -7,6 +7,8 @@ import { PinnedRepoEdge } from "./Types/types";
 // External Imports
 import { useQuery } from '@apollo/client'
 import Typography from '@mui/material/Typography';
+import { Grid } from "@mui/material";
+import { DateTime } from "luxon";
 
 type HomeProps = {
 	handleSettingHeaderMessage: (title: string, subtitle: string) => void
@@ -26,22 +28,41 @@ function Home(props: HomeProps) {
 
 	if (error) {
 		return (
-			<Typography>
-				Error when loading Github API.
-			</Typography>
+			<main
+				style={{
+					display: "flex",
+					justifyContent: "center"
+				}}
+			>
+				<Typography>
+					Error when loading Github API.
+				</Typography>
+			</main>
 		)
 	}
 
 	if (loading) {
 		return (
-			<Typography>
-				Loading...
-			</Typography>
+			<main
+				style={{
+					display: "flex",
+					justifyContent: "center"
+				}}
+			>
+				<Typography>
+					Loading...
+				</Typography>
+			</main>
 		)
 	}
 
-	// Look to Jumbo component in js version of Website for spread props example.
+	function getDateStr(iso: string) {
+		const dT = DateTime.fromISO(iso)
+		return dT.toLocaleString(DateTime.DATETIME_MED)
 
+	}
+
+	// Look to Jumbo component in js version of Website for spread props example.
 	return data
 		?
 		<main
@@ -50,20 +71,34 @@ function Home(props: HomeProps) {
 			<section
 				className="center-width"
 			>
-				{
-					data.user.pinnedItems.edges.map((
-						edge: PinnedRepoEdge,
-						idx: number
-					) => {
-						return (
-							<Typography
-								key={idx}
-							>
-								{edge.node.name}
-							</Typography>
-						)
-					})
-				}
+				<Grid
+					container
+					spacing={2}
+				>
+					{
+						data.user.pinnedItems.edges.map((edge: PinnedRepoEdge) => {
+							return (
+								<Grid
+									key={edge.node.name}
+									item
+									xs={12}
+									sm={4}
+								>
+									<Typography
+									>
+										{edge.node.name}
+									</Typography>
+									<Typography>
+										Updated: {getDateStr(edge.node.pushedAt)}
+									</Typography>
+									<Typography>
+										{edge.node.description}
+									</Typography>
+								</Grid>
+							)
+						})
+					}
+				</Grid>
 			</section>
 		</main>
 		:

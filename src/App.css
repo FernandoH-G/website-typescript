@@ -108,6 +108,14 @@ a:active {
 1280px - desktops
  */
 @media screen and (min-width: 768px) {
+  .center-width {
+    /* 
+    Is there a way to get this media query effect
+    by using clamp()? 
+    */
+    width: 55%
+  }
+
   .nav-title {
     text-align: end;
   }

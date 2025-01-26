@@ -6,6 +6,7 @@ import ic_my_pig from "./../Images/ic_my_pig_512x512.png"
 import { Link, NavLink } from "react-router-dom";
 import { Grid } from "@mui/material";
 import Typography from '@mui/material/Typography';
+import NavOption from "./NavOption";
 
 type NavigationProps = {
 	headerMessage: {
@@ -14,15 +15,6 @@ type NavigationProps = {
 	}
 }
 const Navigation = (props: NavigationProps) => {
-	const normalStyle = {
-		color: "white",
-		marginRight: "8px"
-	}
-	const activeStyle = {
-		color: "#00818A",
-		marginRight: "8px",
-		textShadow: "1px 1px 2px #00818A",
-	}
 
 	return (
 		<section
@@ -63,36 +55,18 @@ const Navigation = (props: NavigationProps) => {
 						<div
 							className="nav-items"
 						>
-							<NavLink
-								to="/home"
-								style={({ isActive }) => isActive ? activeStyle : normalStyle}
-							>
-								<Typography
-									variant="button"
-								>
-									Home
-								</Typography>
-							</NavLink>
-							<NavLink
-								to="videos"
-								style={({ isActive }) => isActive ? activeStyle : normalStyle}
-							>
-								<Typography
-									variant="button"
-								>
-									Videos
-								</Typography>
-							</NavLink>
-							<NavLink
-								to="/about"
-								style={({ isActive }) => isActive ? activeStyle : normalStyle}
-							>
-								<Typography
-									variant="button"
-								>
-									About
-								</Typography>
-							</NavLink>
+							<NavOption
+								href="/home"
+								label="Home"
+							/>
+							<NavOption
+								href="/videos"
+								label="Videos"
+							/>
+							<NavOption
+								href="/about"
+								label="About"
+							/>
 						</div>
 					</div>
 				</Grid>
