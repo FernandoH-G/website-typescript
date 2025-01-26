@@ -1,12 +1,14 @@
 // It's easier to down size a png if it's big to begin with.
 // Doesn't lose quality, at least to my eyes.
+
+// Me
 import ic_my_pig from "./../Images/ic_my_pig_512x512.png"
+import NavOption from "./NavOption";
 
 // External Imports
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Grid } from "@mui/material";
 import Typography from '@mui/material/Typography';
-import NavOption from "./NavOption";
 
 type NavigationProps = {
 	headerMessage: {

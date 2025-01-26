@@ -3,14 +3,13 @@ import { useEffect } from "react"
 // Me
 import { GET_PINNED_REPOS } from "./Util/query"
 import { PinnedRepoEdge } from "./Types/types";
+import RepoCard from "./Component/RepoCard";
 
 // External Imports
-import { useQuery } from '@apollo/client'
-import Typography from '@mui/material/Typography';
-import { Grid } from "@mui/material";
 import { DateTime } from "luxon";
-import HTMLTooltip from "./Component/HTMLTooltip";
-import RepoCard from "./Component/RepoCard";
+import { useQuery } from '@apollo/client'
+import { Grid } from "@mui/material";
+import Typography from '@mui/material/Typography';
 
 type HomeProps = {
 	handleSettingHeaderMessage: (title: string, subtitle: string) => void
@@ -85,38 +84,11 @@ function Home(props: HomeProps) {
 									xs={12}
 									sm={4}
 								>
-									{
-										edge.node.description === null
-											?
-											<RepoCard
-												name={edge.node.name}
-												updatedStr={getDateStr(edge.node.pushedAt)}
-												description={edge.node.description}
-											/>
-											:
-											<HTMLTooltip
-												html={
-													<Typography>
-														{edge.node.description}
-													</Typography>
-												}
-											>
-												<div
-													className="repo-card"
-												>
-													<Typography
-													>
-														{edge.node.name}
-													</Typography>
-													<Typography>
-														Updated: {getDateStr(edge.node.pushedAt)}
-													</Typography>
-													<Typography>
-														{edge.node.description}
-													</Typography>
-												</div>
-											</HTMLTooltip>
-									}
+									<RepoCard
+										name={edge.node.name}
+										updatedStr={getDateStr(edge.node.pushedAt)}
+										description={edge.node.description}
+									/>
 								</Grid>
 							)
 						})

@@ -1,7 +1,11 @@
-import { Typography } from '@mui/material'
 import { useRef } from 'react'
-import HTMLTooltip from './HTMLTooltip'
+
+// Me
 import { useIsOverflow } from '../hooks/useIsOverflow'
+import HTMLTooltip from './HTMLTooltip'
+
+// External Imports
+import { Typography } from '@mui/material'
 
 type RepoCardProps = {
   name: string

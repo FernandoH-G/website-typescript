@@ -1,6 +1,6 @@
-import { styled } from '@mui/material/styles';
+// External Imports
 import Tooltip, { TooltipProps, tooltipClasses } from '@mui/material/Tooltip';
-import React from 'react';
+import { styled } from '@mui/material/styles';
 
 const HtmlTooltip = styled(({ className, ...props }: TooltipProps) => (
   <Tooltip {...props} classes={{ popper: className }} />
@@ -23,6 +23,7 @@ const HTMLTooltip = (props: HTMLTooltipProps) => {
     children,
     html
   } = props
+
   // Not sure if this logic works with touchscreens...
   return (
     <HtmlTooltip
