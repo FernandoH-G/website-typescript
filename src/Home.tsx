@@ -9,6 +9,8 @@ import { useQuery } from '@apollo/client'
 import Typography from '@mui/material/Typography';
 import { Grid } from "@mui/material";
 import { DateTime } from "luxon";
+import HTMLTooltip from "./Component/HTMLTooltip";
+import RepoCard from "./Component/RepoCard";
 
 type HomeProps = {
 	handleSettingHeaderMessage: (title: string, subtitle: string) => void
@@ -59,7 +61,6 @@ function Home(props: HomeProps) {
 	function getDateStr(iso: string) {
 		const dT = DateTime.fromISO(iso)
 		return dT.toLocaleString(DateTime.DATETIME_MED)
-
 	}
 
 	// Look to Jumbo component in js version of Website for spread props example.
@@ -84,16 +85,38 @@ function Home(props: HomeProps) {
 									xs={12}
 									sm={4}
 								>
-									<Typography
-									>
-										{edge.node.name}
-									</Typography>
-									<Typography>
-										Updated: {getDateStr(edge.node.pushedAt)}
-									</Typography>
-									<Typography>
-										{edge.node.description}
-									</Typography>
+									{
+										edge.node.description === null
+											?
+											<RepoCard
+												name={edge.node.name}
+												updatedStr={getDateStr(edge.node.pushedAt)}
+												description={edge.node.description}
+											/>
+											:
+											<HTMLTooltip
+												html={
+													<Typography>
+														{edge.node.description}
+													</Typography>
+												}
+											>
+												<div
+													className="repo-card"
+												>
+													<Typography
+													>
+														{edge.node.name}
+													</Typography>
+													<Typography>
+														Updated: {getDateStr(edge.node.pushedAt)}
+													</Typography>
+													<Typography>
+														{edge.node.description}
+													</Typography>
+												</div>
+											</HTMLTooltip>
+									}
 								</Grid>
 							)
 						})

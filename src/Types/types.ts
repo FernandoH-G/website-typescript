@@ -1,6 +1,6 @@
 type PinnedRepoNode = {
   name: string
-  description: string
+  description: string | null
   url: string
   pushedAt: string
   owner: {
