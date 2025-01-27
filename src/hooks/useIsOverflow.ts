@@ -1,5 +1,6 @@
 import React from "react";
 
+// Shoutout SO & https://www.robinwieruch.de/react-custom-hook-check-if-overflow/
 // export const useIsOverflow = (ref: any, callback: any) => {
 export const useIsOverflow = (ref: any) => {
   const [isOverflow, setIsOverflow] = React.useState<boolean | undefined>(undefined);

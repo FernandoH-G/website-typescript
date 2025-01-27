@@ -22,11 +22,6 @@ const RepoCard = (props: RepoCardProps) => {
   const ref = useRef(null)
   const isOverflow = useIsOverflow(ref)
 
-  // function isOverflown(element: any) {
-  //   console.log('element: ', element)
-  //   return element.scrollHeight > element.clientHeight || element.scrollWidth > element.clientWidth;
-  // }
-
   // Check whether to have HTMLTooltip by checking if the description
   // is overflowing.
   return isOverflow
@@ -40,13 +35,17 @@ const RepoCard = (props: RepoCardProps) => {
     >
       <div
         className="repo-card"
+        // Should ref be here or in HTMLTooltip?
         ref={ref}
       >
         <Typography
+          fontSize="2rem"
         >
           {name}
         </Typography>
-        <Typography>
+        <Typography
+          fontStyle="italic"
+        >
           Updated: {updatedStr}
         </Typography>
         <Typography>
@@ -60,10 +59,13 @@ const RepoCard = (props: RepoCardProps) => {
       ref={ref}
     >
       <Typography
+        fontSize="2rem"
       >
         {name}
       </Typography>
-      <Typography>
+      <Typography
+        fontStyle="italic"
+      >
         Updated: {updatedStr}
       </Typography>
       <Typography>
