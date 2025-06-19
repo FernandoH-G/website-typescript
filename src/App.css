@@ -2,6 +2,7 @@
   --pri: #282c34;
   --sec: #343a40;
   --ter: #00818A;
+  --teralt: hsl(184, 100%, 41%);
   /* ter light? --ter: #00eeff; */
   --txt: white;
   --tablets: 768px;
@@ -32,11 +33,15 @@ a:active {
 
 /***************************************************************/
 .repo-card {
-  border: 1px solid var(--ter);
+  border: 0.25rem solid var(--ter);
   border-radius: 0.5rem;
   padding: 1rem;
-  height: 7rem;
-  overflow: hidden;
+  height: 15rem;
+  overflow: scroll;
+}
+
+.repo-card:hover {
+  border: 0.25rem solid var(--teralt);
 }
 
 .img-logo {
