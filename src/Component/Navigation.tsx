@@ -61,10 +61,10 @@ const Navigation = (props: NavigationProps) => {
 								href="/home"
 								label="Home"
 							/>
-							<NavOption
+							{/* <NavOption
 								href="/videos"
 								label="Videos"
-							/>
+							/> */}
 							<NavOption
 								href="/about"
 								label="About"
