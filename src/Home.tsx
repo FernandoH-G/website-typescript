@@ -88,6 +88,7 @@ function Home(props: HomeProps) {
 										name={edge.node.name}
 										updatedStr={getDateStr(edge.node.pushedAt)}
 										description={edge.node.description}
+										url={edge.node.url}
 									/>
 								</Grid>
 							)

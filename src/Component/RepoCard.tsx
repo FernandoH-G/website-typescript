@@ -1,8 +1,3 @@
-// import { useRef } from 'react'
-
-// Me
-// import { useIsOverflow } from '../hooks/useIsOverflow'
-// import HTMLTooltip from './HTMLTooltip'
 
 // External Imports
 import { Typography } from '@mui/material'
@@ -11,29 +6,29 @@ type RepoCardProps = {
   name: string
   updatedStr: string
   description: string | null
+  url: string
 }
 const RepoCard = (props: RepoCardProps) => {
   const {
     name,
     updatedStr,
-    description
+    description,
+    url
   } = props
 
-  // const ref = useRef(null)
-  // const isOverflow = useIsOverflow(ref)
-
-
-  // Check whether to have HTMLTooltip by checking if the description
-  // is overflowing.
   return (
     <div
       className="repo-card"
-    // ref={ref}
     >
       <Typography
         fontSize="3rem"
       >
-        {name}
+        <a
+          href={url}
+          target='_blank'
+        >
+          {name}
+        </a>
       </Typography>
       <Typography
         fontSize="1.5rem"
