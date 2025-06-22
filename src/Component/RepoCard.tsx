@@ -21,7 +21,7 @@ const RepoCard = (props: RepoCardProps) => {
       className="repo-card"
     >
       <Typography
-        fontSize="3rem"
+        fontSize="2rem"
       >
         <a
           href={url}
@@ -40,13 +40,13 @@ const RepoCard = (props: RepoCardProps) => {
         description === null
           ?
           <Typography
-            fontSize="2rem"
+            fontSize="1.5rem"
           >
             No Description.
           </Typography>
           :
           <Typography
-            fontSize="2rem"
+            fontSize="1.5rem"
           >
             {description}
           </Typography>

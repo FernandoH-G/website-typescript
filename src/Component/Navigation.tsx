@@ -22,7 +22,6 @@ const Navigation = (props: NavigationProps) => {
 		<section
 			style={{
 				display: "flex",
-				// flexWrap: "wrap",
 				marginBottom: "1rem",
 				padding: "1rem 1rem",
 				backgroundColor: "#343a40",
@@ -50,7 +49,6 @@ const Navigation = (props: NavigationProps) => {
 							<img
 								src={ic_my_pig}
 								alt="FH-G logo"
-								// width="80px"
 								className="img-logo"
 							/>
 						</Link>
@@ -61,14 +59,14 @@ const Navigation = (props: NavigationProps) => {
 								href="/home"
 								label="Home"
 							/>
-							{/* <NavOption
-								href="/videos"
-								label="Videos"
-							/> */}
 							<NavOption
 								href="/about"
 								label="About"
 							/>
+							{/* <NavOption
+								href="/videos"
+								label="Videos"
+							/> */}
 						</div>
 					</div>
 				</Grid>

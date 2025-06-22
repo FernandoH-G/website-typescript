@@ -45,7 +45,9 @@ function About(props: AboutProps) {
 							flexDirection: "column"
 						}}
 					>
-						<Typography paragraph>
+						<Typography
+							paragraph
+						>
 							My name is Fernando Herrera-Gomez. I was born in Fresno, CA. My folks
 							moved a lot to follow their seasonal work. Eventually we settled in
 							Bakersfield CA. Going into
@@ -54,7 +56,10 @@ function About(props: AboutProps) {
 							fulfill this goal, I studied and eventually graduated as the
 							outstanding graduate in Philosophy for 2014.
 						</Typography>
-						<Typography paragraph>
+
+						<Typography
+							paragraph
+						>
 							I met good classmates and even better professors. One classmate
 							turned me on to a
 							<a href="https://law.ucla.edu/life-ucla-law/diversity-inclusion/outreach"> UCLA Law Fellows </a>
@@ -63,7 +68,10 @@ function About(props: AboutProps) {
 							in Bakersfield. Attending this internship was a pivotal part of my
 							life.
 						</Typography>
-						<Typography paragraph>
+
+						<Typography
+							paragraph
+						>
 							After some time with the internship, I started to have doubts as to
 							my motivation to become a lawyer. After much introspection, I
 							decided to no longer pursue a career in Law. Cut to 2016, I saw
@@ -81,6 +89,7 @@ function About(props: AboutProps) {
 				>
 					The Big Move
 				</Typography>
+
 				<Typography
 					paragraph
 				>
@@ -97,6 +106,7 @@ function About(props: AboutProps) {
 				>
 					Interests
 				</Typography>
+
 				<Typography paragraph>
 					My last semester of University consisted of me going to classes, then
 					immediatly going
@@ -104,6 +114,7 @@ function About(props: AboutProps) {
 					in the universitie's recreation center. It was physically and
 					mentally challenging and exhausting, but I loved every minute.
 				</Typography>
+
 				<Typography paragraph>
 					I have commuted to school and home via bus and
 					<strong className="flair-text"> cycling </strong>
@@ -111,6 +122,7 @@ function About(props: AboutProps) {
 					rain or shine, I rode my bike as part of the commute to my university.
 					It was a very fun and healthy time.
 				</Typography>
+
 				<Typography
 					paragraph
 				>
@@ -119,7 +131,6 @@ function About(props: AboutProps) {
 					the bus or L, I'm on my bike pedalling to wherever I need to go for
 					the day (most of the time that being my local bouldering gym).
 				</Typography>
-
 			</section>
 		</main>
 	);

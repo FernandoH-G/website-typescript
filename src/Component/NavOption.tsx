@@ -1,3 +1,4 @@
+
 // External Imports
 import { NavLink } from "react-router-dom"
 import Typography from "@mui/material/Typography"
@@ -29,7 +30,7 @@ const NavOption = (props: NavOptionProps) => {
     >
       <Typography
         variant="button"
-        fontSize="1.5rem"
+        fontSize="1.25rem"
       >
         {label}
       </Typography>
