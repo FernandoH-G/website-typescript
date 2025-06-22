@@ -92,7 +92,7 @@ function App() {
           />
           <Routes>
             <Route
-              path="/home"
+              path="/"
               element={
                 <Home
                   handleSettingHeaderMessage={handleSettingHeaderMessage}

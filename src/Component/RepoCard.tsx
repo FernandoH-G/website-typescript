@@ -26,6 +26,7 @@ const RepoCard = (props: RepoCardProps) => {
         <a
           href={url}
           target='_blank'
+          rel='noreferrer'
         >
           {name}
         </a>

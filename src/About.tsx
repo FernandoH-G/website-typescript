@@ -35,7 +35,8 @@ function About(props: AboutProps) {
 					className="me-section"
 				>
 					<img
-						src="./img_pfp.jpg"
+						// src="./img_pfp.jpg"
+						src="/img_pfp.jpg"
 						alt="me"
 						className="img-me"
 					/>

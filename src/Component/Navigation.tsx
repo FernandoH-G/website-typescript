@@ -56,7 +56,7 @@ const Navigation = (props: NavigationProps) => {
 							className="nav-items"
 						>
 							<NavOption
-								href="/home"
+								href="/"
 								label="Home"
 							/>
 							<NavOption
