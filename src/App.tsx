@@ -16,9 +16,8 @@ import {
   InMemoryCache,
 } from '@apollo/client';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { Routes, Route, Navigate } from "react-router-dom/";
+import { Routes, Route, Navigate, BrowserRouter } from "react-router-dom/";
 import { setContext } from '@apollo/client/link/context';
-import { HashRouter } from 'react-router-dom';
 
 const httpLink = createHttpLink({
   uri: 'https://api.github.com/graphql',
@@ -26,6 +25,7 @@ const httpLink = createHttpLink({
 
 const authLink = setContext((_, { headers }) => {
   const token = process.env.REACT_APP_GH_API_KEY;
+
   // Return the headers to the context so httpLink can read them.
   return {
     headers: {
@@ -84,7 +84,7 @@ function App() {
   }, [])
 
   return (
-    <HashRouter>
+    <BrowserRouter>
       <ApolloProvider client={client}>
         <ThemeProvider theme={theme}>
           <Navigation
@@ -100,7 +100,7 @@ function App() {
               }
             />
             <Route
-              path="about"
+              path="/about"
               element={
                 <About
                   handleSettingHeaderMessage={handleSettingHeaderMessage}
@@ -108,7 +108,7 @@ function App() {
               }
             />
             <Route
-              path="videos"
+              path="/videos"
               element={
                 <Videos
                   handleSettingHeaderMessage={handleSettingHeaderMessage}
@@ -122,7 +122,7 @@ function App() {
           </Routes>
         </ThemeProvider >
       </ApolloProvider>
-    </HashRouter>
+    </BrowserRouter>
   )
 }
 
