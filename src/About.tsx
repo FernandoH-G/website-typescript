@@ -25,7 +25,10 @@ function About(props: AboutProps) {
 			<section
 				className="center-width"
 			>
-				<Typography variant="h3" gutterBottom>
+				<Typography
+					variant="h3"
+					gutterBottom
+				>
 					Bio
 				</Typography>
 				<div
@@ -47,7 +50,9 @@ function About(props: AboutProps) {
 							moved a lot to follow their seasonal work. Eventually we settled in
 							Bakersfield CA. Going into
 							<a href="https://www.csub.edu/"> California State University Bakersfield </a>
-							, I had it as my goal to eventually become a lawyer. In order to fulfill this goal, I studied and eventually graduated as the outstanding graduate in Philosophy for 2014.
+							, I had it as my goal to eventually become a lawyer. In order to
+							fulfill this goal, I studied and eventually graduated as the
+							outstanding graduate in Philosophy for 2014.
 						</Typography>
 						<Typography paragraph>
 							I met good classmates and even better professors. One classmate
@@ -86,7 +91,10 @@ function About(props: AboutProps) {
 					out to be the right move!
 				</Typography>
 
-				<Typography variant="h3" gutterBottom>
+				<Typography
+					variant="h3"
+					gutterBottom
+				>
 					Interests
 				</Typography>
 				<Typography paragraph>

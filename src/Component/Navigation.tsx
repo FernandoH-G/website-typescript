@@ -88,7 +88,10 @@ const Navigation = (props: NavigationProps) => {
 							{props.headerMessage.title}
 						</Typography>
 						<Typography
-							style={{ color: "white" }}
+							style={{
+								color: "white"
+							}}
+							fontSize="1.5rem"
 						>
 							{props.headerMessage.subtitle}
 						</Typography>

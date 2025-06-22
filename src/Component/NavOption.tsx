@@ -29,6 +29,7 @@ const NavOption = (props: NavOptionProps) => {
     >
       <Typography
         variant="button"
+        fontSize="1.5rem"
       >
         {label}
       </Typography>
