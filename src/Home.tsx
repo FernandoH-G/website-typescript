@@ -11,21 +11,9 @@ import { useQuery } from '@apollo/client'
 import { Grid } from "@mui/material";
 import Typography from '@mui/material/Typography';
 
-type HomeProps = {
-	handleSettingHeaderMessage: (title: string, subtitle: string) => void
-}
-function Home(props: HomeProps) {
-	const {
-		handleSettingHeaderMessage
-	} = props
+function Home() {
 
-	const title = "Projects"
-	const message = "Projects fetched from Github using their GQL API."
 	const { data, loading, error } = useQuery(GET_PINNED_REPOS);
-
-	useEffect(() => {
-		handleSettingHeaderMessage(title, message)
-	}, [handleSettingHeaderMessage])
 
 	if (error) {
 		return (

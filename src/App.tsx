@@ -1,4 +1,3 @@
-import { useCallback, useState } from "react"
 
 // Internal
 import Navigation from './Component/Navigation';
@@ -71,53 +70,33 @@ const theme = createTheme({
 
 
 function App() {
-  const [headerMessage, setHeaderMessage] = useState({
-    title: "",
-    subtitle: ""
-  })
-
-  const handleSettingHeaderMessage = useCallback((
-    title: string,
-    subtitle: string
-  ) => {
-    setHeaderMessage({ title: title, subtitle: subtitle })
-  }, [])
-
   return (
     <BrowserRouter>
       <ApolloProvider client={client}>
         <ThemeProvider theme={theme}>
-          <Navigation
-            headerMessage={headerMessage}
-          />
+          <Navigation />
           <Routes>
             <Route
               path="/"
               element={
-                <Home
-                  handleSettingHeaderMessage={handleSettingHeaderMessage}
-                />
+                <Home />
               }
             />
             <Route
               path="/about"
               element={
-                <About
-                  handleSettingHeaderMessage={handleSettingHeaderMessage}
-                />
+                <About />
               }
             />
             <Route
               path="/videos"
               element={
-                <Videos
-                  handleSettingHeaderMessage={handleSettingHeaderMessage}
-                />
+                <Videos />
               }
             />
             <Route
               path="*"
-              element={<Navigate to="/home" replace />}
+              element={<Navigate to="/" replace />}
             />
           </Routes>
         </ThemeProvider >

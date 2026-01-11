@@ -3,20 +3,7 @@ import { useEffect } from "react"
 // External Imports
 import Typography from '@mui/material/Typography';
 
-type AboutProps = {
-	handleSettingHeaderMessage: (title: string, subtitle: string) => void
-}
-function About(props: AboutProps) {
-	const {
-		handleSettingHeaderMessage
-	} = props
-
-	const title = "Fernando H-G"
-	const message = "Software Developer."
-
-	useEffect(() => {
-		handleSettingHeaderMessage(title, message)
-	}, [handleSettingHeaderMessage])
+function About() {
 
 	return (
 		<main

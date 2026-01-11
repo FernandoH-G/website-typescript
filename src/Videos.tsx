@@ -14,20 +14,11 @@ import FlipMove from 'react-flip-move';
 const SORT_TYPES = ["date", "title"]
 const SORT_OPTIONS = ["desc", "asc"]
 
-type VideosProps = {
-  handleSettingHeaderMessage: (title: string, subtitle: string) => void
-}
-const Videos = (props: VideosProps) => {
-  const {
-    handleSettingHeaderMessage
-  } = props
+const Videos = () => {
 
   const [videoInfoItems, setVideoInfoItems] = useState<VideoInfoItem[]>([])
   const [sortType, setSortType] = useState(SORT_TYPES[0])
   const [sortOption, setSortOption] = useState(SORT_OPTIONS[0])
-
-  const title = "Videos"
-  const message = "Recent uploads."
 
   const handleSortType = useCallback((
     event: React.MouseEvent<HTMLElement>,
@@ -86,10 +77,6 @@ const Videos = (props: VideosProps) => {
         )
       })
   }
-
-  useEffect(() => {
-    handleSettingHeaderMessage(title, message)
-  }, [handleSettingHeaderMessage])
 
   useEffect(() => {
     const controller = new AbortController()
