@@ -6,7 +6,6 @@
   /* ter light? --ter: #00eeff; */
   --txt: white;
   --tablets: 768px;
-
 }
 
 p {
@@ -19,7 +18,8 @@ h3 {
   color: var(--ter)
 }
 
-a:link, a:visited {
+a:link,
+a:visited {
   color: var(--ter);
   text-decoration: none;
 }
@@ -71,7 +71,6 @@ a:link, a:visited {
 .center-container {
   display: flex;
   justify-content: center;
-  margin-bottom: 1rem;
 }
 
 .center-width {

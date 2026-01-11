@@ -22,7 +22,7 @@ const Navigation = (props: NavigationProps) => {
 		<section
 			style={{
 				display: "flex",
-				marginBottom: "1rem",
+				marginBottom: "2rem",
 				padding: "1rem 1rem",
 				backgroundColor: "#343a40",
 				boxShadow: "0px 2px 4px"
