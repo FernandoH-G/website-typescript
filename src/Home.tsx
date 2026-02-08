@@ -82,7 +82,7 @@ function Home(props: HomeProps) {
 									key={edge.node.name}
 									item
 									xs={12}
-									sm={4}
+									sm={6}
 								>
 									<RepoCard
 										name={edge.node.name}

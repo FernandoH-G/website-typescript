@@ -3,7 +3,7 @@ import { gql } from '@apollo/client'
 export const GET_PINNED_REPOS = gql`
 query GetPinnedRepos {
   user(login: "FernandoH-G") {
-    pinnedItems(first: 5) {
+    pinnedItems(first: 4) {
       edges {
         node {
           ... on Gist {
