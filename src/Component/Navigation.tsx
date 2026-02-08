@@ -6,17 +6,39 @@ import ic_my_pig from "./../Images/ic_my_pig_512x512.png"
 import NavOption from "./NavOption";
 
 // External Imports
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Grid } from "@mui/material";
 import Typography from '@mui/material/Typography';
 
-type NavigationProps = {
-	headerMessage: {
-		title: string
-		subtitle: string
+const Navigation = () => {
+	const location = useLocation().pathname
+
+	function getPageMessage(location: string) {
+		switch (location) {
+			case "/":
+				return {
+					title: "Projects",
+					subtitle: "Projects fetched from Github using their GQL API."
+				}
+			case "/about":
+				return {
+					title: "Fernando H-G",
+					subtitle: "Software Developer."
+				}
+			case "/videos":
+				return {
+					title: "Videos",
+					subtitle: "Recent uploads."
+				}
+			default:
+				return {
+					title: "N/A",
+					subtitle: "N/A"
+				}
+		}
 	}
-}
-const Navigation = (props: NavigationProps) => {
+
+	const pageMessage = getPageMessage(location)
 
 	return (
 		<section
@@ -83,7 +105,7 @@ const Navigation = (props: NavigationProps) => {
 						<Typography
 							variant="h2"
 						>
-							{props.headerMessage.title}
+							{pageMessage.title}
 						</Typography>
 						<Typography
 							style={{
@@ -91,7 +113,7 @@ const Navigation = (props: NavigationProps) => {
 							}}
 							fontSize="1.5rem"
 						>
-							{props.headerMessage.subtitle}
+							{pageMessage.subtitle}
 						</Typography>
 					</div>
 				</Grid>
